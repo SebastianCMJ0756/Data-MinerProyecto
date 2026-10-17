@@ -7,16 +7,23 @@ Este proyecto esta enfocado especificamente en la detección temprana de hábito
 
 ```text
 Data-MinerProyecto/
-├── README.md               # Documentación principal del repositorio
-├── requirements.txt        # Dependencias y librerías del proyecto
-└── data/
-    ├── 01NoProcessData/        # Datos crudos e inmutables (fuente original)
-    │   ├── SENSORES(sucio).xlsx
-    │   └── sleepDay_merged.csv
-    ├── 02IntermediateData/     # Datos limpios y procesados intermedios
-    │   └── Sensores_limpio.csv
-    └── 03DatafinalProcessed/   # Matrices finales listas para modelado
-        └── Sensores_transformado.csv
+├── Datacrude/
+│   ├── 01NoProcessData/                 # Datos crudos originales
+│   │   ├── SENSORES(sucio).xlsx
+│   │   └── sleepDay_merged.csv
+│   ├── 02IntermediateData/              # Datos limpios e integrados
+│   │   └── Sensores_limpio.csv
+│   └── 03DatafinalProcessed/            # Matriz final transformada para ML
+│       └── Sensores_transformado.csv
+├── notebooks/                           # Cuadernos Jupyter del proyecto
+│   ├── Sensores.ipynb                   # Cuaderno de diagnóstico, limpieza y EDA
+│   └── SensoresTransformacion.ipynb     # Cuaderno de vectorización y transformación
+├── src/                                 # Código fuente modular (Python)
+│   ├── Limpieza/
+│   │   └── Sensores_limpios.py          # Clase SensoresDataCleaner
+│   └── Transformacion/
+│       └── transformaciones.py          # Clase SensoresDataTransformer
+└── README.md                            # Documentación principal del proyecto
 ```
 
 ## Estructura y Arquitectura de Datos (`Datacrude/`)
