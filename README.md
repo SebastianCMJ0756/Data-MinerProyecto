@@ -15,6 +15,10 @@ Data-MinerProyecto/
 │   │   └── Sensores_limpio.csv
 │   └── 03DatafinalProcessed/            # Matriz final transformada para ML
 │       └── Sensores_transformado.csv
+├── Docs/
+|   ├── DatamineProyectoEDA.md
+|   └── LimpiezaSedentarismo.md
+|
 ├── notebooks/                           # Cuadernos Jupyter del proyecto
 |   ├── arbol_de_decisiones.md           # Imagen del arbol + las dos discutas (con respuestas) sesion 7
 |   ├── decisionesEscalado.md            # La matriz de Features (dataset wearable)
@@ -22,7 +26,7 @@ Data-MinerProyecto/
 |   ├── informeEDA.md                    # Informe inicial del EDA   
 │   ├── Sensores.ipynb                   # Cuaderno de diagnóstico, limpieza y EDA
 │   └── SensoresTransformacion.ipynb     # Cuaderno de vectorización y transformación
-|   └── 
+|   
 ├── src/                                 # Código fuente modular (Python)
 │   ├── Limpieza/
 │   │   └── Sensores_limpios.py          # Clase SensoresDataCleaner
