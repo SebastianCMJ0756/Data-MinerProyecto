@@ -20,10 +20,13 @@ Data-MinerProyecto/
 |   └── LimpiezaSedentarismo.md
 |
 ├── notebooks/                           # Cuadernos Jupyter del proyecto
-|   ├── arbol_de_decisiones.md           # Imagen del arbol + las dos discutas (con respuestas) sesion 7
+|   ├── arbol_de_decisiones.md           # Imagen del arbol + las dos discutas (con respuestas)
+|   ├── comparacion_modelos.ipynb        # Torneo: Árbol vs Naive Bayes vs KNN
 |   ├── decisionesEscalado.md            # La matriz de Features (dataset wearable)
+|   ├── doc_comparacion_modelos.md       # Veredicto técnico del torneo de modelos
 |   ├── hipotesisFuga.md                 # Las 3 preguntas 
 |   ├── informeEDA.md                    # Informe inicial del EDA   
+|   ├── Pitch_Data-MinerProyecto.pptx    
 │   ├── Sensores.ipynb                   # Cuaderno de diagnóstico, limpieza y EDA
 │   └── SensoresTransformacion.ipynb     # Cuaderno de vectorización y transformación
 |   
