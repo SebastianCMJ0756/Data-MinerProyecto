@@ -1,0 +1,25 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Entornos virtuales
+venv/
+env/
+.venv/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Datos procesados (opcional, descomentar si no se quieren versionar)
+# Datacrude/02IntermediateData/
+# Datacrude/03DatafinalProcessed/
+
+# IDE
+.vscode/
+.idea/
