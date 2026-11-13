@@ -21,6 +21,7 @@ Data-MinerProyecto/
 |
 ├── notebooks/                           # Cuadernos Jupyter del proyecto
 |   ├── arbol_de_decisiones.md           # Imagen del arbol + las dos discutas (con respuestas)
+|   ├── Clustering_Sedentarismo.ipynb    # Sesion 9, clustering
 |   ├── comparacion_modelos.ipynb        # Torneo: Árbol vs Naive Bayes vs KNN
 |   ├── decisionesEscalado.md            # La matriz de Features (dataset wearable)
 |   ├── doc_comparacion_modelos.md       # Veredicto técnico del torneo de modelos
