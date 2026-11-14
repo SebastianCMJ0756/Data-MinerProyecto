@@ -35,6 +35,10 @@ Data-MinerProyecto/
 │   └── Transformacion/
 │       └── transformaciones.py          # Clase SensoresDataTransformer
 ├── .gitignore                           # Ignora __pycache__, checkpoints, entornos virtuales
+├── tests/                               # Pruebas automatizadas (pytest)
+│   ├── test_limpieza.py                 # Tests de SensoresDataCleaner
+│   ├── test_transformacion.py           # Tests de SensoresDataTransformer
+│   └── NotasTest.md                     # Documentación de los tests
 ├── requirements.txt                     # Dependencias del proyecto
 └── README.md                            # Documentación principal del proyecto
 ```
