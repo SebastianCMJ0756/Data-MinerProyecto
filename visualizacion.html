@@ -135,7 +135,7 @@
     Chart.defaults.color = '#e2e8f0';
     Chart.defaults.borderColor = 'rgba(255,255,255,0.08)';
 
-    const CSV_URL = 'https://raw.githubusercontent.com/SebastianCMJ0756/Data-MinerProyecto/main/Datacrude/02IntermediateData/Sensores_limpio.csv';
+    const CSV_URL = 'https://docs.google.com/spreadsheets/d/1LWuhYAhk-5FZ5nvWDOY7NrS8gRkn4x3B253GTiJC7j4/export?format=csv';
 
     let datos = [];
     let campos = [];
@@ -373,16 +373,7 @@
     const btnDescargar = document.getElementById('btnDescargar');
     if (btnDescargar) {
       btnDescargar.addEventListener('click', function() {
-        const url = 'https://raw.githubusercontent.com/SebastianCMJ0756/Data-MinerProyecto/main/Datacrude/02IntermediateData/Sensores_limpio.csv';
-        fetch(url)
-          .then(function(r) { return r.blob(); })
-          .then(function(blob) {
-            const u = window.URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = u; a.download = 'Sensores_limpio.csv';
-            document.body.appendChild(a); a.click(); a.remove();
-            window.URL.revokeObjectURL(u);
-          });
+        window.open('https://docs.google.com/spreadsheets/d/1LWuhYAhk-5FZ5nvWDOY7NrS8gRkn4x3B253GTiJC7j4/export?format=csv', '_blank');
       });
     }
 
