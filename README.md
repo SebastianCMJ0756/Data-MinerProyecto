@@ -40,6 +40,7 @@ Data-MinerProyecto/
 │   ├── test_transformacion.py           # Tests de SensoresDataTransformer
 │   └── NotasTest.md                     # Documentación de los tests
 ├── requirements.txt                     # Dependencias del proyecto
+├── visualizacion.html                   # Visualizacion del CSV (se puede descargar por cualquier persona)
 └── README.md                            # Documentación principal del proyecto
 ```
 
