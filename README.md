@@ -3,6 +3,14 @@
 ## Contexto del Proyecto
 Este proyecto está enfocado específicamente en la detección temprana de hábitos de riesgo en "sedentarios activos" utilizando datos de wearables (acelerometría triaxial y fotopletismografía - PPG), integrando además condiciones climáticas (API OpenWeatherMap) y registros de sueño (`sleepDay_merged.csv`).
 
+## Dataset + API
+**Wearables (Fitbit):** Fuente principal en la actividad fisica.
+
+**Sueño (Fitbit):** Registro de sueños para el enriquecimiento con metricas de descanso.
+
+**Clima (OpenWeatherMap):** API de correlaciones de factores ambientales con sedentarismo
+
+
 ## Estructura del Repositorio
 
 ```text
@@ -40,7 +48,7 @@ Data-MinerProyecto/
 │   ├── test_transformacion.py           # Tests de SensoresDataTransformer
 │   └── NotasTest.md                     # Documentación de los tests
 ├── requirements.txt                     # Dependencias del proyecto
-├── visualizacion.html                   # Visualizacion del CSV (se puede descargar por cualquier persona)
+├── index.html                           # Visualizacion del CSV (se puede descargar por cualquier persona)
 └── README.md                            # Documentación principal del proyecto
 ```
 
