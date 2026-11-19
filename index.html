@@ -135,7 +135,7 @@
     Chart.defaults.color = '#e2e8f0';
     Chart.defaults.borderColor = 'rgba(255,255,255,0.08)';
 
-    const CSV_URL = 'https://docs.google.com/spreadsheets/d/1LWuhYAhk-5FZ5nvWDOY7NrS8gRkn4x3B253GTiJC7j4/export?format=csv';
+    const CSV_URL = 'https://raw.githubusercontent.com/SebastianCMJ0756/Data-MinerProyecto/main/Datacrude/02IntermediateData/Sensores_limpio.csv';
 
     let datos = [];
     let campos = [];
@@ -158,8 +158,15 @@
         return v;
       };
       const get = (keys) => {
+        // Buscar por nombre exacto o case-insensitive
         for (const k of keys) {
           if (row[k] !== undefined && row[k] !== null && row[k] !== '') return row[k];
+        }
+        // Buscar case-insensitive
+        const rowKeys = Object.keys(row);
+        for (const key of keys) {
+          const found = rowKeys.find(rk => rk.toLowerCase().trim() === key.toLowerCase().trim());
+          if (found && row[found] !== undefined && row[found] !== null && row[found] !== '') return row[found];
         }
         return null;
       };
@@ -187,6 +194,7 @@
           datos = results.data.map(mapearColumnas);
           campos = results.meta.fields;
           console.log('Pasos mapeados (primeros 5):', datos.slice(0,5).map(d => d.pasos));
+          console.log('nivel_pasos mapeados (primeros 5):', datos.slice(0,5).map(d => d.nivel_pasos));
           document.getElementById('infoTabla').textContent = 'Total: ' + datos.length + ' registros (solo lectura)';
           mostrarTodo();
         },
@@ -259,15 +267,31 @@
         return Object.values(d).some(function(v) { return String(v).toLowerCase().includes(filtro); });
       });
       const cols = ['fecha', 'pasos', 'sedentario', 'activo', 'fc', 'sueno', 'nivel_pasos'];
+      const labels = {
+        fecha: 'Fecha',
+        pasos: 'Pasos',
+        sedentario: 'Sedentario (min)',
+        activo: 'Activo (min)',
+        fc: 'Calorías',
+        sueno: 'Sueño (min)',
+        nivel_pasos: 'Nivel de pasos'
+      };
       const thead = document.querySelector('#tabla thead');
       const tbody = document.querySelector('#tabla tbody');
-      thead.innerHTML = '<tr>' + cols.map(function(c) { return '<th>' + c + '</th>'; }).join('') + '</tr>';
+      thead.innerHTML = '<tr>' + cols.map(function(c) { return '<th>' + labels[c] + '</th>'; }).join('') + '</tr>';
       tbody.innerHTML = filtrados.slice(0, 200).map(function(row) {
         const altoSed = row.sedentario != null && row.sedentario > 480;
         return '<tr>' + cols.map(function(c) {
-          const val = row[c] ?? '';
-          if (c === 'sedentario' && altoSed) return '<td><span class="badge-red">' + val + '</span></td>';
-          return '<td>' + val + '</td>';
+          let val = row[c] ?? '';
+          const units = { pasos: ' pasos', sedentario: ' min', activo: ' min', fc: ' kcal', sueno: ' min' };
+          let suffix = units[c] ? units[c] : '';
+          // Para sueño sin datos, mostrar N/A
+          if (c === 'sueno' && (val === '' || val === null || val === undefined)) {
+            val = 'N/A';
+            suffix = '';
+          }
+          if (c === 'sedentario' && altoSed) return '<td><span class="badge-red">' + val + suffix + '</span></td>';
+          return '<td>' + val + suffix + '</td>';
         }).join('') + '</tr>';
       }).join('');
       document.getElementById('infoTabla').textContent = 'Mostrando ' + Math.min(filtrados.length, 200) + ' de ' + filtrados.length + ' registros' + (filtro ? ' (filtrado)' : '') + ' — solo lectura';
@@ -389,7 +413,16 @@
     const btnDescargar = document.getElementById('btnDescargar');
     if (btnDescargar) {
       btnDescargar.addEventListener('click', function() {
-        window.open('https://docs.google.com/spreadsheets/d/1LWuhYAhk-5FZ5nvWDOY7NrS8gRkn4x3B253GTiJC7j4/export?format=csv', '_blank');
+        const url = 'https://raw.githubusercontent.com/SebastianCMJ0756/Data-MinerProyecto/main/Datacrude/02IntermediateData/Sensores_limpio.csv';
+        fetch(url)
+          .then(function(r) { return r.blob(); })
+          .then(function(blob) {
+            const u = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = u; a.download = 'Sensores_limpio.csv';
+            document.body.appendChild(a); a.click(); a.remove();
+            window.URL.revokeObjectURL(u);
+          });
       });
     }
 
