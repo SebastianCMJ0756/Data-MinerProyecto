@@ -37,6 +37,11 @@ Data-MinerProyecto/
 │   ├── hipotesisFuga.md                 # 3 preguntas/hipótesis de fuga
 │   ├── informeEDA.md                    # Informe EDA (6 secciones)
 │   └── Pitch_Data-MinerProyecto.pptx    # Presentación del proyecto
+├── MetodosNumericosExp/                 # Métodos numéricos (interpolación y regresión) 
+│   ├── InterpolacionLagrange/
+│   │   └── README.md                    # Interpolación de Lagrange + ejemplo paso a paso
+│   └── RegresionLineal/
+│       └── README.md                    # Regresión lineal por mínimos cuadrados + ejemplo
 ├── src/                                 # Código fuente modular (Python)
 │   ├── Limpieza/
 │   │   └── Sensores_limpios.py          # Clase SensoresDataCleaner
